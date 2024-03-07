@@ -10,10 +10,10 @@ public class automobile {
 	
 	//Default constructor
 	public automobile() {
-		make = "UnknownMake";
-		model = "UnknownModel";
-		color = "UnknownColor";
-		year = 1886;
+		make = "DefaultMake";
+		model = "DefaultModel";
+		color = "DefaultColor";
+		year = 0;
 		mileage = 0;
 		System.out.println("Default vehicle created");
 	}
@@ -35,8 +35,8 @@ public class automobile {
 		return list;
 	}
 	
-	//Remove vehicle
-	//
+	//Remove vehicle (Objects are deleted automatically through garbage collection,
+	//this just sets all of its values to 0 or null)
 	public void removeVehicle() {
 		make = null;
 		model = null;
@@ -46,7 +46,7 @@ public class automobile {
 		System.out.println("Vehicle removed");
 	}
 	
-	//Update info (all at once)
+	//Update vehicle attributes (all at once)
 	public void updateInfo(String newMake, String newModel, String newColor, int newYear, int newMileage) {
 		make = newMake;
 		model = newModel;
@@ -55,7 +55,7 @@ public class automobile {
 		mileage = newMileage;
 		System.out.println("All vehicle info updated");
 	}
-	//Update info (one at a time, for String info)
+	//Update vehicle attributes (one at a time, for String info)
 	public void updateInfo(int choice, String newInfo) {
 		switch (choice) {
 		case 0:
@@ -74,7 +74,7 @@ public class automobile {
 			System.out.println("Error: 0-2 require String input, 3-4 require int input");
 		}
 	}
-	//Update info (one at a time, for int info)
+	//Update vehicle attributes (one at a time, for int info)
 	public void updateInfo(int choice, int newInfo) {
 		switch (choice) {
 		case 3:
