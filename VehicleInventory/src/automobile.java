@@ -31,13 +31,18 @@ public class automobile {
 	//List Vehicle Info
 	public String[] getInfo() {
 		String[] list = {make, model, color, year + "", mileage + ""};
-		System.out.println("Vehicle info retrieved");
+		System.out.println("Vehicle variable retrieved");
 		return list;
 	}
 	
 	//Remove vehicle
 	public void removeVehicle() {
-		
+		make = null;
+		model = null;
+		color = null;
+		year = 0;
+		mileage = 0;
+		System.out.println("Vehicle removed");
 	}
 	
 	public void updateInfo() {
