@@ -15,9 +15,11 @@ public class vehicleInventory {
 		System.out.println(printInfo(car1));
 		
 		//Call the remove vehicle method to clear the variables
+		car1.removeVehicle();
+		
 	}
 	
-	//Takes automobile input, gives String output of formatted info
+	//Takes automobile input, gives String output of preformatted info using list method
 	public static String printInfo(automobile inputCar) {
 		String output = inputCar.getInfo()[3] + " " + inputCar.getInfo()[0] + " " + inputCar.getInfo()[1] + ", " + inputCar.getInfo()[2] + ", " + inputCar.getInfo()[4] + " miles";
 		System.out.println("Vehicle info formatted");

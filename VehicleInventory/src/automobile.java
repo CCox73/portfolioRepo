@@ -31,11 +31,12 @@ public class automobile {
 	//List Vehicle Info
 	public String[] getInfo() {
 		String[] list = {make, model, color, year + "", mileage + ""};
-		System.out.println("Vehicle variable retrieved");
+		System.out.println("Variable retrieved");
 		return list;
 	}
 	
 	//Remove vehicle
+	//
 	public void removeVehicle() {
 		make = null;
 		model = null;
@@ -45,7 +46,47 @@ public class automobile {
 		System.out.println("Vehicle removed");
 	}
 	
-	public void updateInfo() {
-		
+	//Update info (all at once)
+	public void updateInfo(String newMake, String newModel, String newColor, int newYear, int newMileage) {
+		make = newMake;
+		model = newModel;
+		color = newColor;
+		year = newYear;
+		mileage = newMileage;
+		System.out.println("All vehicle info updated");
+	}
+	//Update info (one at a time, for String info)
+	public void updateInfo(int choice, String newInfo) {
+		switch (choice) {
+		case 0:
+			make = newInfo;
+			System.out.println("Vehicle make updated");
+			break;
+		case 1:
+			model = newInfo;
+			System.out.println("Vehicle model updated");
+			break;
+		case 2:
+			color = newInfo;
+			System.out.println("Vehicle color updated");
+			break;
+		default:
+			System.out.println("Error: 0-2 require String input, 3-4 require int input");
+		}
+	}
+	//Update info (one at a time, for int info)
+	public void updateInfo(int choice, int newInfo) {
+		switch (choice) {
+		case 3:
+			year = newInfo;
+			System.out.println("Vehicle year updated");
+			break;
+		case 4:
+			mileage = newInfo;
+			System.out.println("Vehicle mileage updated");
+			break;
+		default:
+			System.out.println("Error: 0-2 require String input, 3-4 require int input");
+		}
 	}
 }
