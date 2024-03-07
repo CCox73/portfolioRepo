@@ -10,10 +10,10 @@ public class automobile {
 	
 	//Default constructor
 	public automobile() {
-		make = "Unknown";
-		model = "Unknown";
-		color = "Unknown";
-		year = 0000;
+		make = "UnknownMake";
+		model = "UnknownModel";
+		color = "UnknownColor";
+		year = 1886;
 		mileage = 0;
 	}
 	
@@ -24,5 +24,10 @@ public class automobile {
 		color = carColor;
 		year = carYear;
 		mileage = carMileage;
+	}
+	
+	//List Vehicle Info
+	public String getInfo() {
+		return year + " " + make + " " + model + ", " + color + ", " + mileage + " miles";
 	}
 }
