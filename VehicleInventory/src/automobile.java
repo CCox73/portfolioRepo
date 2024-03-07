@@ -26,8 +26,9 @@ public class automobile {
 		mileage = carMileage;
 	}
 	
-	//List Vehicle Info
-	public String getInfo() {
-		return year + " " + make + " " + model + ", " + color + ", " + mileage + " miles";
+	//List Vehicle Info !!!!!!!!!!TO DO !!!!!!!!!!!! make this return a string array
+	public String[] getInfo() {
+		String[] list = {make, model, color, year + "", mileage + ""};
+		return list;
 	}
 }
