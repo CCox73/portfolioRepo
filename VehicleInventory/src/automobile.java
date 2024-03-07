@@ -15,6 +15,7 @@ public class automobile {
 		color = "UnknownColor";
 		year = 1886;
 		mileage = 0;
+		System.out.println("Default vehicle created");
 	}
 	
 	//Parameterized constructor
@@ -24,11 +25,22 @@ public class automobile {
 		color = carColor;
 		year = carYear;
 		mileage = carMileage;
+		System.out.println("Parameterized vehicle created");
 	}
 	
-	//List Vehicle Info !!!!!!!!!!TO DO !!!!!!!!!!!! make this return a string array
+	//List Vehicle Info
 	public String[] getInfo() {
 		String[] list = {make, model, color, year + "", mileage + ""};
+		System.out.println("Vehicle info retrieved");
 		return list;
+	}
+	
+	//Remove vehicle
+	public void removeVehicle() {
+		
+	}
+	
+	public void updateInfo() {
+		
 	}
 }

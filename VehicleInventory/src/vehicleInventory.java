@@ -1,18 +1,26 @@
-import java.io.*;
 import java.util.Scanner;
+
 public class vehicleInventory {
-	
-	public static int inventorySize = 0;
-	public static automobile[] inventory = new automobile[100];
 
 	public static void main(String[] args) {
 		
+		//"Call automobile class with parameterized constructor (e.g., "make, model, color, year, mileage")."
 		automobile car1 = new automobile("Nissan", "Leaf", "White", 2012, 10000);
 		
-		System.out.println(car1.getInfo()[0]);
+		//"Then call the method to list the values. Loop through the array and print to the screen."
 		for (int i = 0; i < 5; i++) {
 			System.out.println(car1.getInfo()[i]);
 		}
+		
+		System.out.println(printInfo(car1));
+		
+		//Call the remove vehicle method to clear the variables
 	}
 	
+	//Takes automobile input, gives String output of formatted info
+	public static String printInfo(automobile inputCar) {
+		String output = inputCar.getInfo()[3] + " " + inputCar.getInfo()[0] + " " + inputCar.getInfo()[1] + ", " + inputCar.getInfo()[2] + ", " + inputCar.getInfo()[4] + " miles";
+		System.out.println("Vehicle info formatted");
+		return output;
+	}
 }
