@@ -25,10 +25,4 @@ public class automobile {
 		year = carYear;
 		mileage = carMileage;
 	}
-	
-	//Main
-	public static void main(String[] args) {
-		automobile[] inventory;
-	}
-
 }
