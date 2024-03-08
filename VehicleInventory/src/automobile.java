@@ -16,11 +16,11 @@ public class automobile {
 			color = "DefaultColor";
 			year = 9999;
 			mileage = 0;
-			System.out.println("Default vehicle created");
+			System.out.println("automobile() success");
 		}
 		catch (Exception excpt) {
 			System.out.println(excpt.getMessage());
-			System.out.println("Default construction failed");
+			System.out.println("automobile() failed");
 		}
 	}
 	
@@ -32,11 +32,11 @@ public class automobile {
 			color = carColor;
 			year = carYear;
 			mileage = carMileage;
-			System.out.println("Parameterized vehicle created");
+			System.out.println("automobile(String,String,String,int,int) success");
 		}
 		catch (Exception excpt) {
 			System.out.println(excpt.getMessage());
-			System.out.println("Parameterized construction failed");
+			System.out.println("automobile(String,String,String,int,int) failed");
 		}
 	}
 	
@@ -44,12 +44,12 @@ public class automobile {
 	public String[] getInfo() {
 		try {
 			String[] list = {make, model, color, year + "", mileage + ""};
-			System.out.println("Variable retrieved");
+			System.out.println("getInfo() success");
 			return list;
 		}
 		catch (Exception excpt) {
 			System.out.println(excpt.getMessage());
-			System.out.println("Vehicle info retrieval failed");
+			System.out.println("getInfo() failed");
 			return null;
 		}
 	}
@@ -63,11 +63,11 @@ public class automobile {
 			color = null;
 			year = 0;
 			mileage = 0;
-			System.out.println("Vehicle removed");
+			System.out.println("removeVehicle() success");
 		}
 		catch (Exception excpt) {
 			System.out.println(excpt.getMessage());
-			System.out.println("Vehicle removal failed");
+			System.out.println("removeVehicle() failed");
 		}
 	}
 	
@@ -79,11 +79,11 @@ public class automobile {
 			color = newColor;
 			year = newYear;
 			mileage = newMileage;
-			System.out.println("All vehicle info updated");
+			System.out.println("updateInfo(String,String,String,int,int) success");
 		}
 		catch (Exception excpt) {
 			System.out.println(excpt.getMessage());
-			System.out.println("Vehicle info update failed");
+			System.out.println("updateInfo(String,String,String,int,int) failed");
 		}
 	}
 	//Update vehicle attributes (one at a time, for String info)
@@ -92,23 +92,23 @@ public class automobile {
 			switch (choice) {
 			case 0:
 				make = newInfo;
-				System.out.println("Vehicle make updated");
+				System.out.println("updateInfo(0,String) success");
 				break;
 			case 1:
 				model = newInfo;
-				System.out.println("Vehicle model updated");
+				System.out.println("updateInfo(1,String) success");
 				break;
 			case 2:
 				color = newInfo;
-				System.out.println("Vehicle color updated");
+				System.out.println("updateInfo(2,String) success");
 				break;
 			default:
-				System.out.println("Error: 0-2 require String input, 3-4 require int input");
+				System.out.println("updateInfo(int,String) failed");
 			}
 		}
 		catch (Exception excpt) {
 			System.out.println(excpt.getMessage());
-			System.out.println("Vehicle info update failed");
+			System.out.println("updateInfo(int,String) failed");
 		}
 	}
 	//Update vehicle attributes (one at a time, for int info)
@@ -117,19 +117,19 @@ public class automobile {
 			switch (choice) {
 			case 3:
 				year = newInfo;
-				System.out.println("Vehicle year updated");
+				System.out.println("updateInfo(3,int) success");
 				break;
 			case 4:
 				mileage = newInfo;
-				System.out.println("Vehicle mileage updated");
+				System.out.println("updateInfo(4,int) success");
 				break;
 			default:
-				System.out.println("Error: 0-2 require String input, 3-4 require int input");
+				System.out.println("updateInfo(int,int) failed");
 			}
 		}
 		catch (Exception excpt) {
 			System.out.println(excpt.getMessage());
-			System.out.println("Vehicle info update failed");
+			System.out.println("updateInfo(int,int) failed");
 		}
 	}
 }

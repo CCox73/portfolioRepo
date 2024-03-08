@@ -51,10 +51,11 @@ public class vehicleInventory {
 		try {
 			String output = ">" + inputCar.getInfo()[3] + " " + inputCar.getInfo()[0] + " " + inputCar.getInfo()[1] + ", " + inputCar.getInfo()[2] + ", " + inputCar.getInfo()[4] + " miles";
 			System.out.println(output);
+			System.out.println("printInfo(automobile) success");
 		}
 		catch (Exception excpt) {
 			System.out.println(excpt.getMessage());
-			System.out.println("Info could not be printed");
+			System.out.println("printInfo(automobile) failed");
 		}
 	}
 }
