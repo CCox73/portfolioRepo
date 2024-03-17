@@ -35,9 +35,11 @@ public class vehicleInventory {
 		String userInput = scnr.next();
 		switch (userInput) {
 		case "Y":
+		case "y":
 			System.out.println("Y: Printing information to [placeholder].txt...");
 			break;
 		case "N":
+		case "n":
 			System.out.println("N: Information will not be printed to file.");
 			break;
 		default:
