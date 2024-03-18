@@ -62,7 +62,7 @@ public class automobile {
 				System.out.println("Search successful: match found");
 				return true;
 			}else {
-				System.out.println("Search successful: no matches found");
+				//System.out.println("Search successful: no matches found");
 				return false;
 			}
 		}
@@ -81,57 +81,11 @@ public class automobile {
 			color = newColor;
 			year = newYear;
 			mileage = newMileage;
-			System.out.println("updateInfo(String,String,String,int,int) success");
+			//System.out.println("updateInfo(String,String,String,int,int) success");
 		}
 		catch (Exception excpt) {
 			System.out.println(excpt.getMessage());
 			System.out.println("updateInfo(String,String,String,int,int) failed");
-		}
-	}
-	//Update vehicle attributes (one at a time, for String info)
-	public void updateInfo(int choice, String newInfo) {
-		try {
-			switch (choice) {
-			case 0:
-				make = newInfo;
-				System.out.println("updateInfo(0,String) success");
-				break;
-			case 1:
-				model = newInfo;
-				System.out.println("updateInfo(1,String) success");
-				break;
-			case 2:
-				color = newInfo;
-				System.out.println("updateInfo(2,String) success");
-				break;
-			default:
-				System.out.println("updateInfo(int,String) failed");
-			}
-		}
-		catch (Exception excpt) {
-			System.out.println(excpt.getMessage());
-			System.out.println("updateInfo(int,String) failed");
-		}
-	}
-	//Update vehicle attributes (one at a time, for int info)
-	public void updateInfo(int choice, int newInfo) {
-		try {
-			switch (choice) {
-			case 3:
-				year = newInfo;
-				System.out.println("updateInfo(3,int) success");
-				break;
-			case 4:
-				mileage = newInfo;
-				System.out.println("updateInfo(4,int) success");
-				break;
-			default:
-				System.out.println("updateInfo(int,int) failed");
-			}
-		}
-		catch (Exception excpt) {
-			System.out.println(excpt.getMessage());
-			System.out.println("updateInfo(int,int) failed");
 		}
 	}
 }

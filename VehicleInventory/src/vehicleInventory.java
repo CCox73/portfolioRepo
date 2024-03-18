@@ -7,6 +7,16 @@ public class vehicleInventory {
 	public static Scanner scnr = new Scanner(System.in);
 	
 	public static void main(String[] args) {
+		FileOutputStream fileStream = null;
+		PrintWriter outFS = null;
+		
+		try{
+			fileStream = new FileOutputStream("AutoInventory.txt");
+			outFS = new PrintWriter(fileStream);
+		}
+		catch(Exception excpt) {
+			System.out.println(excpt.getMessage());
+		}
 		
 		//"Call automobile class with parameterized constructor (e.g., "make, model, color, year, mileage")."
 		//automobile car1 = new automobile("Nissan", "Leaf", "White", 2012, 15000);
@@ -18,22 +28,19 @@ public class vehicleInventory {
 			System.out.println(">" + inventory.get(0).getInfo()[i]);
 		}
 		//Demonstration compared to output with loop^
-		printInfo(inventory.get(0));
+		printInventory();
 		
 		//"Call the remove vehicle method to clear the variables"
-		//car1.removeVehicle();
-		//inventory.remove(0);
 		deleteVehicle();
+		printInventory();
 		
 		//"Add a new vehicle."
 		addNewVehicle();
 		printInventory();
 		
 		//"Update the vehicle... Call the listing method and print the information to the screen."
-		//car2.updateInfo("Toyota", "Corolla", "Silver", 2007, 23000);
-		//printInfo(car2);
-		//car2.updateInfo(2, "Grey");
-		//printInfo(car2);
+		updateVehicle();
+		printInventory();
 		
 		//"Display a message asking if the user wants to print the information to a file (Y or N)."
 		System.out.println("Would you like to print the information to a file? (Y/N):");
@@ -41,7 +48,16 @@ public class vehicleInventory {
 		switch (userInput) {
 		case "Y":
 		case "y":
-			System.out.println("Y: Printing information to [placeholder].txt...");
+			System.out.println("Y: Printing information to AutoInventory.txt...");
+			try {
+				for(int i = 0; i < inventory.size(); i++) {
+					outFS.println(">" + inventory.get(i).getInfo()[3] + " " + inventory.get(i).getInfo()[0] + " " + inventory.get(i).getInfo()[1] + ", " + inventory.get(i).getInfo()[2] + ", " + inventory.get(i).getInfo()[4] + " miles");
+				}
+				System.out.println("Successfully printed inventory to AutoInventory.txt");
+			}catch(Exception excpt) {
+				System.out.println(excpt.getMessage());
+				System.out.println("Printing to file failed.");
+			}
 			break;
 		case "N":
 		case "n":
@@ -50,7 +66,9 @@ public class vehicleInventory {
 		default:
 			System.out.println("Invalid selection: Information will not be printed to file.");
 		}
+		System.out.println("The program will now end. Thank you for using.");
 		
+		outFS.close();
 		scnr.close();
 	}
 	
@@ -70,10 +88,12 @@ public class vehicleInventory {
 	//Prints info of every vehicle in inventory array
 	public static void printInventory() {
 		try {
+			System.out.println("Printing inventory:");
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 			for(int i = 0; i < inventory.size(); i++) {
 				printInfo(inventory.get(i));
 			}
-			System.out.println("Inventory printed");
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 		}
 		catch (Exception excpt){
 			System.out.println(excpt.getMessage());
@@ -155,11 +175,22 @@ public class vehicleInventory {
 			int i = -1;
 			System.out.println("Please input the information of the vehicle you wish to UPDATE");
 			i = findVehicle();
-			inventory.remove(i);
-			System.out.println("Vehicle successfully deleted.");
+			System.out.println("Input updated vehicle make: ");
+			String newMake = scnr.next();
+			System.out.println("Input updated vehicle model: ");
+			String newModel = scnr.next();
+			System.out.println("Input updated vehicle color: ");
+			String newColor = scnr.next();
+			System.out.println("Input updated vehicle year: ");
+			int newYear = scnr.nextInt();
+			System.out.println("Input updated vehicle mileage: ");
+			int newMileage = scnr.nextInt();
+			inventory.get(i).updateInfo(newMake, newModel, newColor, newYear, newMileage);
+			System.out.println("Vehicle successfully updated.");
 		}
 		catch(Exception excpt) {
-			
+			System.out.println(excpt.getMessage());
+			System.out.println("updateVehicle() failed");
 		}
 	}
 }
