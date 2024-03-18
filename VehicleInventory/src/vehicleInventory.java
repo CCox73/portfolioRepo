@@ -1,26 +1,33 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 import java.io.*;
 public class vehicleInventory {
 
+	public static ArrayList<automobile> inventory = new ArrayList<automobile>();
+	
 	public static void main(String[] args) {
 		Scanner scnr = new Scanner(System.in);
 		
 		//"Call automobile class with parameterized constructor (e.g., "make, model, color, year, mileage")."
 		automobile car1 = new automobile("Nissan", "Leaf", "White", 2012, 15000);
+		inventory.add(new automobile("Nissan", "Leaf", "White", 2012, 15000));
+		inventory.add(new automobile());
 		
 		//"Then call the method to list the values. Loop through the array and print to the screen."
 		for (int i = 0; i < 5; i++) {
-			System.out.println(">" + car1.getInfo()[i]);
+			System.out.println(">" + inventory.get(0).getInfo()[i]);
 		}
 		//Demonstration compared to output with loop^
-		printInfo(car1);
+		printInfo(inventory.get(0));
+		//printInfo(car1);
+		printInventory();
 		
 		//"Call the remove vehicle method to clear the variables"
 		car1.removeVehicle();
 		
 		//"Add a new vehicle."
-		//This should be using an 'add new vehicle' method. How is that different from a constructor?
-		//Should the method be in automobile or vehicleInventory? Should I be putting these in an array?
+		//This should be using an 'add new vehicle' method. Gets user input
+		//Should be in vehicleInventory. Adds new vehicle to arraylist
 		automobile car2 = new automobile();
 		printInfo(car2);
 		
@@ -62,5 +69,19 @@ public class vehicleInventory {
 		}
 	}
 	
+	public static void printInventory() {
+		try {
+			for(int i = 0; i < inventory.size(); i++) {
+				printInfo(inventory.get(i));
+			}
+			System.out.println("printInventory() success");
+		}
+		catch (Exception excpt){
+			System.out.println("printInventory() failed");
+		}
+	}
 	
+	public static void addNewVehicle() {
+		
+	}
 }
