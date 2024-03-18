@@ -16,7 +16,7 @@ public class automobile {
 			color = "DefaultColor";
 			year = 9999;
 			mileage = 0;
-			System.out.println("automobile() success");
+			System.out.println("Default automobile created");
 		}
 		catch (Exception excpt) {
 			System.out.println(excpt.getMessage());
@@ -32,7 +32,7 @@ public class automobile {
 			color = carColor;
 			year = carYear;
 			mileage = carMileage;
-			System.out.println("automobile(String,String,String,int,int) success");
+			System.out.println("Parameterized automobile created");
 		}
 		catch (Exception excpt) {
 			System.out.println(excpt.getMessage());
@@ -44,7 +44,7 @@ public class automobile {
 	public String[] getInfo() {
 		try {
 			String[] list = {make, model, color, year + "", mileage + ""};
-			System.out.println("getInfo() success");
+			//System.out.println("getInfo() success");
 			return list;
 		}
 		catch (Exception excpt) {
@@ -56,18 +56,20 @@ public class automobile {
 	
 	//Remove vehicle (Objects are deleted automatically through garbage collection,
 	//this just sets all of its values to 0 or null)
-	public void removeVehicle() {
+	public boolean checkInfo(String makeInput, String modelInput, String colorInput, int yearInput, int mileageInput) {
 		try {
-			make = null;
-			model = null;
-			color = null;
-			year = 0;
-			mileage = 0;
-			System.out.println("removeVehicle() success");
+			if(make.equals(makeInput) && model.equals(modelInput) && color.equals(colorInput) && year == yearInput && mileage == mileageInput){
+				System.out.println("Search successful: match found");
+				return true;
+			}else {
+				System.out.println("Search successful: no matches found");
+				return false;
+			}
 		}
 		catch (Exception excpt) {
 			System.out.println(excpt.getMessage());
-			System.out.println("removeVehicle() failed");
+			System.out.println("Search failed");
+			return false;
 		}
 	}
 	
